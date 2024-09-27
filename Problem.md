@@ -17,7 +17,7 @@ Dacă există suprapuneri, afișează toate perechile de competiții care se sup
 competiții = [(10, 12), (11, 13), (14, 16), (15, 17)]
 ### Ieșire:
 
-(Competitie 1: 10 - 12) se suprapune cu (Competitie 2: 11 - 13)
+(Competitie 1: 10 - 12) se suprapune cu (Competitie 2: 11 - 13) \n
 (Competitie 3: 14 - 16) se suprapune cu (Competitie 4: 15 - 17)
 
 ### Intrare:
