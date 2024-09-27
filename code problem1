@@ -1,0 +1,63 @@
+def find_unsorted_segments(arr):
+    """
+    Identifică segmentele (subsecvențele) nesortate din array.
+    """
+    segments = []
+    start = None
+
+    for i in range(len(arr) - 1):
+        if arr[i] > arr[i + 1]:  # Dacă elementul curent este mai mare decât următorul, începe un segment nesortat
+            if start is None:
+                start = i
+        else:
+            if start is not None:
+                segments.append((start, i))
+                start = None
+
+    # Dacă avem un segment nesortat la finalul array-ului
+    if start is not None:
+        segments.append((start, len(arr) - 1))
+
+    return segments
+
+def reverse_subarray(arr, start, end):
+    """
+    Inversează elementele între index-urile start și end.
+    """
+    while start < end:
+        arr[start], arr[end] = arr[end], arr[start]
+        start += 1
+        end -= 1
+
+def min_reversals_to_sort(arr):
+    """
+    Determină numărul minim de inversări de subsecvențe contigue pentru a sorta array-ul.
+    """
+    original_arr = arr[:]
+    sorted_arr = sorted(arr)
+
+    # Dacă array-ul este deja sortat
+    if arr == sorted_arr:
+        return 0
+
+    # Număr de inversări
+    reversals = 0
+
+    while arr != sorted_arr:
+        # Găsim segmentele nesortate
+        segments = find_unsorted_segments(arr)
+
+        # Inversăm fiecare segment nesortat pe rând pentru a ajunge mai aproape de array-ul sortat
+        for segment in segments:
+            start, end = segment
+            reverse_subarray(arr, start, end)
+            reversals += 1
+            # Dacă array-ul devine sortat după o inversare, oprim
+            if arr == sorted_arr:
+                return reversals
+
+    return reversals
+
+# Testare cu array-ul dat
+A = [3, 5, 2, 8, 6, 1, 9, 4, 7]
+print("Numărul minim de inversări necesare:", min_reversals_to_sort(A))
