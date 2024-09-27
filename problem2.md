@@ -1,4 +1,3 @@
-Sure! Here's another logic problem involving an array:
 
 ### Problem:
 You have an array of integers:  
@@ -14,4 +13,4 @@ For an array `B = [4, 3, 2, 1]`, one optimal solution would be:
 1. Reverse the entire array `[4, 3, 2, 1]` to get `[1, 2, 3, 4]`.  
 In this case, only one subarray reversal is needed.
 
-**What is the minimum number of subarray reversals needed for `A`?**
+**What is the minimum number of subarray reversals needed for `A`?**oh
